@@ -19,29 +19,31 @@
 \section{Aims \& Objectives}
 
 \noindent\textbf{Aim:} To improve the efficiency (memory use, lookup performance and update cost) of
-software routers and switches in multi-tenant environments, with a focus on concurrent reads and
-updates.
+software routers and switches in multi-tenant environments, with a focus on concurrent lookups and
+updates. In particular, we aim to determine how the number of tenants and the similarity of their
+forwarding tables affect these three metrics under concurrent updates.
 
 \medskip
 \noindent\textbf{Objectives:}
 \begin{enumerate}
   \item Review existing data structures for multi-tenant packet forwarding, as well as safe memory
   reclamation methods for concurrent data structures.
-  \item Identify realistic settings for multi-tenant software routing and characterise their
+  \item Identify realistic multi-tenant settings for software forwarding and characterise their
   workloads using published data.
-  \item Implement and evaluate a per-tenant baseline and state-of-the-art multi-tenant forwarding
-  structures, as a reference for comparison.
-  \item Adapt existing multi-tenant forwarding structures to support concurrent lookups and updates,
-  and, where promising, develop new ones.
-  \item Integrate safe memory reclamation methods with these structures.
-  \item Evaluate which combinations of data structure and memory reclamation method suit each
-  setting, under different workloads and update patterns.
+  \item Implement and evaluate a simple baseline, using a separate data structure for each tenant,
+  and state-of-the-art forwarding data structures from the literature, as reference points for
+  comparison.
+  \item Extend the most promising of these structures to support concurrent lookups and updates
+  where they do not already, and develop new ones where worthwhile.
+  \item Integrate safe memory reclamation methods with these forwarding data structures.
+  \item Evaluate which combinations of forwarding data structure and memory reclamation method suit
+  each setting, under different workloads and update patterns.
 \end{enumerate}
 
 \section{Expected outcomes/deliverables}
 
 \begin{itemize}
-  \item A literature survey of multi-tenant forwarding structures and safe memory reclamation
+  \item A literature review of multi-tenant forwarding data structures and safe memory reclamation
   techniques.
   \item A characterisation of the target settings, and a workload generator based on published
   statistics.
@@ -51,24 +53,30 @@ updates.
   and reclamation methods across settings.
 \end{itemize}
 
+\clearpage
 \section{Work Plan}
 
+\noindent Dates are completion milestones: each activity is finished by the date given.
+
 \begin{itemize}
-  \item \textbf{Mid-October:} Complete the overview of multi-tenant forwarding structures and memory
-  reclamation methods.
+  \item \textbf{Throughout the whole project:} Write the report alongside implementation and
+  evaluation.
+  \item \textbf{Mid-October:} Literature review of multi-tenant forwarding data structures and
+  memory reclamation methods.
   \item \textbf{End of October:} Identify three real-life settings for the project, together with a
   characterisation of their workloads.
-  \item \textbf{Mid-November:} Implement the per-tenant baseline, together with the workload
-  generator and the correctness and performance measurement harnesses.
-  \item \textbf{Early December:} Implement existing compression techniques and explore new shared
+  \item \textbf{Mid-November:} Implement simple baseline, together with the workload generator and
+  the correctness and performance measurement harnesses.
+  \item \textbf{Early December:} Implement state-of-the-art data structures and explore new shared
   designs; compare them with the baseline in a single-threaded environment.
-  \item \textbf{Late December to early January:} Implement a first memory reclamation method for the
-  promising structures and compare their performance.
+  \item \textbf{Late December to early January:} Extend the promising data structures to support
+  concurrent lookups and updates, with a first memory reclamation method, and document their
+  design.
   \item \textbf{Mid-January:} Write the interim report with the current results.
   \item \textbf{End of January:} Implement a second memory reclamation method.
   \item \textbf{End of February:} Evaluate all combinations of structures and reclamation methods on
   synthetic workloads based on published statistics.
-  \item \textbf{Early March:} Start report writing.
+  \item \textbf{Early March:} Complete the full draft.
 \end{itemize}
 
 \end{document}
