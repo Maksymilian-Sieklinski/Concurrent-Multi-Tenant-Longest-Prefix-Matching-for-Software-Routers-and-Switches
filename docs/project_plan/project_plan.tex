@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setlist{itemsep=1pt,topsep=3pt}
+\emergencystretch=2em
+
+\begin{document}
+
+\begin{center}
+  {\Large\textbf{Project Plan}}
+\end{center}
+
+\noindent\textbf{Project Title:} Concurrent Multi-Tenant Longest-Prefix Matching for Software Routers and Switches\\
+\textbf{Name:} Maksymilian Siekli\'nski\\
+\textbf{Supervisor:} Stefano Vissicchio
+
+\section{Aims \& Objectives}
+
+\noindent\textbf{Aim:} To improve the efficiency (memory use, lookup performance and update cost) of
+software routers and switches in multi-tenant environments, with a focus on concurrent reads and
+updates.
+
+\medskip
+\noindent\textbf{Objectives:}
+\begin{enumerate}
+  \item Review existing data structures for multi-tenant packet forwarding, as well as safe memory
+  reclamation methods for concurrent data structures.
+  \item Identify realistic settings for multi-tenant software routing and characterise their
+  workloads using published data.
+  \item Implement and evaluate a per-tenant baseline and state-of-the-art multi-tenant forwarding
+  structures, as a reference for comparison.
+  \item Adapt existing multi-tenant forwarding structures to support concurrent lookups and updates,
+  and, where promising, develop new ones.
+  \item Integrate safe memory reclamation methods with these structures.
+  \item Evaluate which combinations of data structure and memory reclamation method suit each
+  setting, under different workloads and update patterns.
+\end{enumerate}
+
+\section{Expected outcomes/deliverables}
+
+\begin{itemize}
+  \item A literature survey of multi-tenant forwarding structures and safe memory reclamation
+  techniques.
+  \item A characterisation of the target settings, and a workload generator based on published
+  statistics.
+  \item A design specification and documented C++ implementations of the data structures and
+  reclamation methods.
+  \item A testing and evaluation strategy, with results comparing combinations of data structures
+  and reclamation methods across settings.
+\end{itemize}
+
+\section{Work Plan}
+
+\begin{itemize}
+  \item \textbf{Mid-October:} Complete the overview of multi-tenant forwarding structures and memory
+  reclamation methods.
+  \item \textbf{End of October:} Identify three real-life settings for the project, together with a
+  characterisation of their workloads.
+  \item \textbf{Mid-November:} Implement the per-tenant baseline, together with the workload
+  generator and the correctness and performance measurement harnesses.
+  \item \textbf{Early December:} Implement existing compression techniques and explore new shared
+  designs; compare them with the baseline in a single-threaded environment.
+  \item \textbf{Late December to early January:} Implement a first memory reclamation method for the
+  promising structures and compare their performance.
+  \item \textbf{Mid-January:} Write the interim report with the current results.
+  \item \textbf{End of January:} Implement a second memory reclamation method.
+  \item \textbf{End of February:} Evaluate all combinations of structures and reclamation methods on
+  synthetic workloads based on published statistics.
+  \item \textbf{Early March:} Start report writing.
+\end{itemize}
+
+\end{document}

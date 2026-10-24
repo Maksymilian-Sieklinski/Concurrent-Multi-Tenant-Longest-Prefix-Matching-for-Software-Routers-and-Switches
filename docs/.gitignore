@@ -1,0 +1,41 @@
+# TeX / LaTeX auxiliary and log files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.maf
+*.mtc
+*.mtc0
+*.nav
+*.nlo
+*.nls
+*.out
+*.pdfsync
+*.snm
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.vrb
+*.run.xml
+
+# TeX environment files
+*.dvi
+*.ps
+
+# Editor-specific folders / temp files
+.idea/
+.vscode/
+*.swp
+*~
