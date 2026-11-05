@@ -31,9 +31,9 @@ Dates are completion milestones: each activity is finished by the date given.
 - **Mid-October:** Literature review of multi-tenant forwarding data structures and memory reclamation methods.
 - **End of October:** Identify three real-life settings for the project, together with a characterisation of their workloads.
 - **Mid-November:** Implement simple baseline, together with the workload generator and the correctness and performance measurement harnesses.
-- **Early December:** Implement state-of-the-art data structures and explore new shared designs; compare them with the baseline in a single-threaded environment.
-- **Late December to early January:** Extend the promising data structures to support concurrent lookups and updates, with a first memory reclamation method, and document their design.
+- **Mid-December:** Implement state-of-the-art data structures and explore new shared designs; compare them with the baseline in a single-threaded environment.
+- **Mid-January:** Extend the promising data structures to support concurrent lookups and updates, with a first memory reclamation method, and document their design.
 - **Mid-January:** Write the interim report with the current results.
-- **End of January:** Implement a second memory reclamation method.
-- **End of February:** Evaluate all combinations of structures and reclamation methods on synthetic workloads based on published statistics.
-- **Early March:** Complete the full draft.
+- **Mid-February:** Implement a second memory reclamation method.
+- **Mid-March:** Evaluate all combinations of structures and reclamation methods on synthetic workloads based on published statistics.
+- **Mid-April:** Complete the full draft.
