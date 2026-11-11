@@ -1,0 +1,507 @@
+% Single bibliography for every document in docs/.
+% Only entries that are actually cited appear in a document's reference list.
+%
+% Typst's IEEE style drops the container/publisher of @online entries, so blog
+% posts, mailing-list posts and online manuals use @article with `journal` set
+% to the site or manual name. Plain @online is fine when there is no container.
+
+@article{ruiz2001survey,
+  author  = {Ruiz-Sánchez, M. Á. and Biersack, E. W. and Dabbous, W.},
+  title   = {Survey and taxonomy of {IP} address lookup algorithms},
+  journal = {IEEE Network},
+  volume  = {15},
+  number  = {2},
+  pages   = {8--23},
+  year    = {2001}
+}
+
+@article{srinivasan1999,
+  author  = {Srinivasan, V. and Varghese, G.},
+  title   = {Fast address lookups using controlled prefix expansion},
+  journal = {ACM Transactions on Computer Systems},
+  volume  = {17},
+  number  = {1},
+  pages   = {1--40},
+  year    = {1999}
+}
+
+@article{morrison1968,
+  author  = {Morrison, D. R.},
+  title   = {{PATRICIA}---Practical algorithm to retrieve information coded in alphanumeric},
+  journal = {Journal of the ACM},
+  volume  = {15},
+  number  = {4},
+  pages   = {514--534},
+  year    = {1968}
+}
+
+@inproceedings{gupta1998,
+  author    = {Gupta, P. and Lin, S. and McKeown, N.},
+  title     = {Routing lookups in hardware at memory access speeds},
+  booktitle = {Proc. IEEE INFOCOM},
+  pages     = {1240--1247},
+  year      = {1998}
+}
+
+@techreport{drepper2007,
+  author      = {Drepper, U.},
+  title       = {What every programmer should know about memory},
+  institution = {Red Hat, Inc.},
+  publisher   = {Red Hat, Inc.},
+  date        = {2007-11},
+  url         = {https://people.redhat.com/drepper/cpumemory.pdf}
+}
+
+@article{fleming2025,
+  author  = {Fleming, M. and Brouer, J.},
+  title   = {A deep dive into {BPF} {LPM} trie performance and optimization},
+  journal = {The Cloudflare Blog},
+  date    = {2025-10-21},
+  url     = {https://blog.cloudflare.com/a-deep-dive-into-bpf-lpm-trie-performance-and-optimization/}
+}
+
+@article{arashloo2018,
+  author  = {Arashloo, M. T. and Shirshov, P. and Gandhi, R. and Lu, G. and Yuan, L. and Rexford, J.},
+  title   = {A scalable {VPN} gateway for multi-tenant cloud services},
+  journal = {ACM SIGCOMM Computer Communication Review},
+  volume  = {48},
+  number  = {1},
+  pages   = {50--55},
+  date    = {2018-01}
+}
+
+@techreport{rfc1918,
+  author      = {Rekhter, Y. and Moskowitz, B. and Karrenberg, D. and de Groot, G. J. and Lear, E.},
+  title       = {Address allocation for private internets},
+  type        = {RFC},
+  number      = {1918 (BCP 5)},
+  institution = {IETF},
+  date        = {1996-02}
+}
+
+@techreport{rfc4364,
+  author      = {Rosen, E. and Rekhter, Y.},
+  title       = {{BGP/MPLS IP} virtual private networks ({VPNs})},
+  type        = {RFC},
+  number      = {4364},
+  institution = {IETF},
+  date        = {2006-02}
+}
+
+@article{xu2024map,
+  author  = {Xu, K. and Jiang, D. and Li, Y. and Wang, X. and Zhang, D. and Xie, G.},
+  title   = {{MaP}: Increasing node capacity of programmable cloud gateways},
+  journal = {Computer Networks},
+  volume  = {251},
+  pages   = {110590},
+  year    = {2024}
+}
+
+@inproceedings{pan2021sailfish,
+  author    = {Pan, T. and Yu, N. and Jia, C. and Pi, J. and Xu, L. and Qiao, Y. and Li, Z. and Liu, K. and Lu, J. and Lu, J. and Song, E. and Zhang, J. and Huang, T. and Zhu, S.},
+  title     = {Sailfish: Accelerating cloud-scale multi-tenant multi-service gateways with programmable switches},
+  booktitle = {Proc. ACM SIGCOMM},
+  year      = {2021}
+}
+
+@online{dpdk,
+  author = {{DPDK Project}},
+  title  = {Data Plane Development Kit},
+  url    = {https://www.dpdk.org}
+}
+
+@inproceedings{dalton2018andromeda,
+  author    = {{Dalton et al.}, M.},
+  title     = {Andromeda: Performance, isolation, and velocity at scale in cloud network virtualization},
+  booktitle = {Proc. 15th USENIX Symposium on Networked Systems Design and Implementation (NSDI)},
+  pages     = {373--387},
+  year      = {2018}
+}
+
+@techreport{rfc7348,
+  author      = {Mahalingam, M. and Dutt, D. and Duda, K. and Agarwal, P. and Kreeger, L. and Sridhar, T. and Bursell, M. and Wright, C.},
+  title       = {Virtual {eXtensible} {Local} {Area} {Network} ({VXLAN}): A framework for overlaying virtualized layer 2 networks over layer 3 networks},
+  type        = {RFC},
+  number      = {7348},
+  institution = {IETF},
+  date        = {2014-08}
+}
+
+@inproceedings{lu2024quarktable,
+  author    = {Lu, J. and Zhao, H. and Qi, Y. and Feng, Y. and Guo, X. and Li, S. and Song, E. and Wei, X. and Lyu, B. and Wen, R. and Zhu, S.},
+  title     = {{QuarkTable}: Building compact forwarding tables for programmable switches on public clouds},
+  booktitle = {Proc. 8th Asia-Pacific Workshop on Networking (APNet)},
+  year      = {2024}
+}
+
+@article{vppscale,
+  author  = {{FD.io}},
+  title   = {Scale},
+  journal = {The Vector Packet Processor (VPP) v24.02 documentation},
+  url     = {https://s3-docs.fd.io/vpp/24.02/developer/corefeatures/fib/scale.html}
+}
+
+@inproceedings{wei2023achelous,
+  author    = {Wei, C. and Li, X. and Yang, Y. and Jiang, X. and Xu, T. and Yang, B. and Wu, T. and Xu, C. and Lv, Y. and Gao, H. and Zhang, Z. and Chen, Z. and Wang, Z. and Zhang, Z. and Zhu, S. and Chen, W.},
+  title     = {Achelous: Enabling programmability, elasticity, and reliability in hyperscale cloud networks},
+  booktitle = {Proc. ACM SIGCOMM},
+  pages     = {769--782},
+  year      = {2023}
+}
+
+@inproceedings{kim2008relaying,
+  author    = {Kim, C. and Gerber, A. and Lund, C. and Pei, D. and Sen, S.},
+  title     = {Scalable {VPN} routing via relaying},
+  booktitle = {Proc. ACM SIGMETRICS},
+  pages     = {61--72},
+  year      = {2008}
+}
+
+@book{dinham2021vmx,
+  author    = {Dinham, M. and Katti, M. and Reddy, V.},
+  title     = {Day One: {vMX} Up and Running},
+  edition   = {2},
+  publisher = {Juniper Networks Books},
+  year      = {2021}
+}
+
+@article{tinka2015,
+  author  = {Tinka, M.},
+  title   = {[c-nsp] Internet in {VRF}},
+  journal = {cisco-nsp mailing list},
+  date    = {2015-05-01},
+  url     = {https://puck.nether.net/pipermail/cisco-nsp/2015-May/099383.html}
+}
+
+@article{huston2025,
+  author  = {Huston, G.},
+  title   = {A day in the life of {BGP}},
+  journal = {The ISP Column},
+  date    = {2025-06},
+  url     = {https://ispcol.potaroo.net/2025-06/daybgp.html}
+}
+
+@inproceedings{luo2012tcam,
+  author    = {Luo, L. and Xie, G. and Uhlig, S. and Mathy, L. and Salamatian, K. and Xie, Y.},
+  title     = {Towards {TCAM}-based scalable virtual routers},
+  booktitle = {Proc. 8th ACM International Conference on Emerging Networking Experiments and Technologies (CoNEXT)},
+  pages     = {73--84},
+  year      = {2012}
+}
+
+@article{li2014,
+  author  = {Li, Y. and Zhang, D. and Huang, K. and He, D. and Long, W.},
+  title   = {A memory-efficient parallel routing lookup model with fast updates},
+  journal = {Computer Communications},
+  volume  = {38},
+  pages   = {60--71},
+  year    = {2014}
+}
+
+@inproceedings{firestone2017vfp,
+  author    = {Firestone, D.},
+  title     = {{VFP}: A virtual switch platform for host {SDN} in the public cloud},
+  booktitle = {Proc. 14th USENIX Symposium on Networked Systems Design and Implementation (NSDI)},
+  pages     = {315--328},
+  year      = {2017}
+}
+
+@inproceedings{hu2026cacheman,
+  author    = {Hu, X. and Cao, Y. and Guan, N. and Wu, Y. and Qiu, X. and Dai, S. and Luo, B. and Cheng, S. and Qiu, F. and Shen, Y. and Wu, J.},
+  title     = {Cacheman: A comprehensive last-level cache management system for multi-tenant clouds},
+  booktitle = {Proc. ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming (PPoPP)},
+  year      = {2026}
+}
+
+@inproceedings{li2023pond,
+  author    = {Li, H. and Berger, D. S. and Novakovic, S. and Hsu, L. and Ernst, D. and Zardoshti, P. and Shah, M. and Rajadnya, S. and Lee, S. and Agarwal, I. and Hill, M. D. and Fontoura, M. and Bianchini, R.},
+  title     = {Pond: {CXL}-based memory pooling systems for cloud platforms},
+  booktitle = {Proc. ACM International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS)},
+  year      = {2023}
+}
+
+@inproceedings{hadary2020protean,
+  author    = {Hadary, O. and Marshall, L. and Menache, I. and Pan, A. and Greeff, E. E. and Dion, D. and Dorminey, S. and Joshi, S. and Chen, Y. and Russinovich, M. and Moscibroda, T.},
+  title     = {Protean: {VM} allocation service at scale},
+  booktitle = {Proc. 14th USENIX Symposium on Operating Systems Design and Implementation (OSDI)},
+  pages     = {845--861},
+  year      = {2020}
+}
+
+@online{amd9965,
+  author = {{AMD}},
+  title  = {{AMD EPYC} 9965},
+  note   = {Product specifications},
+  year   = {2024},
+  url    = {https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9965.html}
+}
+
+@article{vppthreads,
+  author  = {{FD.io}},
+  title   = {Multi-threading in {VPP}},
+  journal = {The Vector Packet Processor (VPP) v24.06 documentation},
+  url     = {https://s3-docs.fd.io/vpp/24.06/developer/corearchitecture/multi_thread.html}
+}
+
+@online{rtnetlink,
+  author = {{The Linux Kernel}},
+  title  = {include/linux/rtnetlink.h},
+  note   = {Source file; comment: ``RTNL is used as a global lock for all changes to network configuration''},
+  url    = {https://android.googlesource.com/kernel/common/+/cb0a3edf8d00/include/linux/rtnetlink.h}
+}
+
+@article{dpdkthreads,
+  author  = {{DPDK Project}},
+  title   = {Thread safety of {DPDK} functions},
+  journal = {DPDK Programmer's Guide, v17.11},
+  url     = {https://dpdk.readthedocs.io/en/v17.11/prog_guide/thread_safety_dpdk_functions.html}
+}
+
+@book{herlihy2008art,
+  author    = {Herlihy, M. and Shavit, N.},
+  title     = {The Art of Multiprocessor Programming},
+  publisher = {Morgan Kaufmann},
+  year      = {2008}
+}
+
+@article{herlihy1991,
+  author  = {Herlihy, M.},
+  title   = {Wait-free synchronization},
+  journal = {ACM Transactions on Programming Languages and Systems},
+  volume  = {13},
+  number  = {1},
+  pages   = {124--149},
+  year    = {1991}
+}
+
+@article{hart2007,
+  author  = {Hart, T. E. and McKenney, P. E. and Brown, A. D. and Walpole, J.},
+  title   = {Performance of memory reclamation for lockless synchronization},
+  journal = {Journal of Parallel and Distributed Computing},
+  volume  = {67},
+  number  = {12},
+  pages   = {1270--1285},
+  year    = {2007}
+}
+
+@inproceedings{mckenney1998,
+  author    = {McKenney, P. E. and Slingwine, J. D.},
+  title     = {Read-copy update: Using execution history to solve concurrency problems},
+  booktitle = {Proc. Parallel and Distributed Computing and Systems (PDCS)},
+  address   = {Las Vegas, NV, USA},
+  pages     = {509--518},
+  date      = {1998-10}
+}
+
+@phdthesis{fraser2004,
+  author    = {Fraser, K.},
+  title     = {Practical lock-freedom},
+  school    = {University of Cambridge},
+  publisher = {University of Cambridge},
+  note      = {Published as Technical Report UCAM-CL-TR-579},
+  year      = {2004}
+}
+
+@article{michael2004,
+  author  = {Michael, M. M.},
+  title   = {Hazard pointers: Safe memory reclamation for lock-free objects},
+  journal = {IEEE Transactions on Parallel and Distributed Systems},
+  volume  = {15},
+  number  = {6},
+  pages   = {491--504},
+  year    = {2004}
+}
+
+@article{rizzo2012revisiting,
+  author  = {Rizzo, Luigi},
+  title   = {Revisiting Network {I/O} {APIs}: The netmap Framework},
+  journal = {Communications of the ACM},
+  volume  = {55},
+  number  = {3},
+  pages   = {45--51},
+  year    = {2012},
+  doi     = {10.1145/2093548.2093565}
+}
+% ---------------------------------------------------------------------------
+% Related works (multi-tenant forwarding data structures)
+
+@online{linuxvrf,
+  author = {{The Linux Kernel}},
+  title  = {Virtual Routing and Forwarding ({VRF})},
+  note   = {The Linux Kernel documentation},
+  url    = {https://docs.kernel.org/networking/vrf.html}
+}
+
+@online{dpdkfib,
+  author = {{DPDK Project}},
+  title  = {{FIB} Library},
+  note   = {DPDK Programmer's Guide},
+  url    = {https://doc.dpdk.org/guides/prog_guide/fib_lib.html}
+}
+
+@inproceedings{asai2015poptrie,
+  author    = {Asai, H. and Ohara, Y.},
+  title     = {Poptrie: A compressed trie with population count for fast and scalable software {IP} routing table lookup},
+  booktitle = {Proc. ACM SIGCOMM},
+  pages     = {57--70},
+  year      = {2015}
+}
+
+@inproceedings{fu2008shared,
+  author    = {Fu, J. and Rexford, J.},
+  title     = {Efficient {IP}-address lookup with a shared forwarding table for multiple virtual routers},
+  booktitle = {Proc. ACM CoNEXT},
+  year      = {2008}
+}
+
+@inproceedings{luo2013trie,
+  author    = {Luo, L. and Xie, G. and Salamatian, K. and Uhlig, S. and Mathy, L. and Xie, Y.},
+  title     = {A trie merging approach with incremental updates for virtual routers},
+  booktitle = {Proc. IEEE INFOCOM},
+  pages     = {1222--1230},
+  year      = {2013}
+}
+
+@inproceedings{song2009shape,
+  author    = {Song, H. and Kodialam, M. and Hao, F. and Lakshman, T. V.},
+  title     = {Scalable {IP} lookups using shape graphs},
+  booktitle = {Proc. IEEE International Conference on Network Protocols (ICNP)},
+  pages     = {73--82},
+  year      = {2009}
+}
+
+@inproceedings{filliatre2006hashcons,
+  author    = {Filli{\^a}tre, J.-C. and Conchon, S.},
+  title     = {Type-safe modular hash-consing},
+  booktitle = {Proc. ACM SIGPLAN Workshop on ML},
+  pages     = {12--19},
+  year      = {2006}
+}
+
+@inproceedings{song2010braiding,
+  author    = {Song, H. and Kodialam, M. and Hao, F. and Lakshman, T. V.},
+  title     = {Building scalable virtual routers with trie braiding},
+  booktitle = {Proc. IEEE INFOCOM},
+  pages     = {1442--1450},
+  year      = {2010}
+}
+
+@article{zhou2012shifting,
+  author  = {Zhou, Y. and Li, Y. and Jin, D. and Su, L. and Zeng, L. and Rashvand, H. F.},
+  title   = {Trie shifting scheme with depth adjusting for multiple virtual routers},
+  journal = {IET Communications},
+  volume  = {6},
+  number  = {12},
+  pages   = {1716--1723},
+  year    = {2012}
+}
+
+@inproceedings{draves1999ortc,
+  author    = {Draves, R. and King, C. and Venkatachary, S. and Zill, B. D.},
+  title     = {Constructing optimal {IP} routing tables},
+  booktitle = {Proc. IEEE INFOCOM},
+  pages     = {88--97},
+  year      = {1999}
+}
+
+@inproceedings{liu2013fifa,
+  author    = {Liu, Y. and Zhang, B. and Wang, L.},
+  title     = {{FIFA}: Fast incremental {FIB} aggregation},
+  booktitle = {Proc. IEEE INFOCOM},
+  pages     = {1801--1809},
+  year      = {2013}
+}
+
+@inproceedings{dharmapurikar2003bloom,
+  author    = {Dharmapurikar, S. and Krishnamurthy, P. and Taylor, D. E.},
+  title     = {Longest prefix matching using {Bloom} filters},
+  booktitle = {Proc. ACM SIGCOMM},
+  pages     = {201--212},
+  year      = {2003}
+}
+
+@inproceedings{waldvogel1997scalable,
+  author    = {Waldvogel, M. and Varghese, G. and Turner, J. and Plattner, B.},
+  title     = {Scalable high speed {IP} routing lookups},
+  booktitle = {Proc. ACM SIGCOMM},
+  pages     = {25--36},
+  year      = {1997}
+}
+
+@inproceedings{luo2012hybrid,
+  author    = {Luo, L. and Xie, G. and Xie, Y. and Mathy, L. and Salamatian, K.},
+  title     = {A hybrid {IP} lookup architecture with fast updates},
+  booktitle = {Proc. IEEE INFOCOM},
+  pages     = {2435--2443},
+  year      = {2012}
+}
+
+@online{linuxfibtrie,
+  author = {{The Linux Kernel}},
+  title  = {{LC}-trie implementation notes},
+  note   = {The Linux Kernel documentation},
+  url    = {https://docs.kernel.org/networking/fib_trie.html}
+}
+
+@article{vppfib,
+  author  = {{FD.io}},
+  title   = {Routes},
+  journal = {The Vector Packet Processor (VPP) v24.02 documentation},
+  url     = {https://s3-docs.fd.io/vpp/24.02/developer/corefeatures/fib/routes.html}
+}
+
+@article{nilsson1999lctrie,
+  author  = {Nilsson, S. and Karlsson, G.},
+  title   = {{IP}-address lookup using {LC}-tries},
+  journal = {IEEE Journal on Selected Areas in Communications},
+  volume  = {17},
+  number  = {6},
+  pages   = {1083--1092},
+  year    = {1999}
+}
+
+@article{retvari2016compressing,
+  author  = {R{\'e}tv{\'a}ri, G. and Tapolcai, J. and K{\H{o}}r{\"o}si, A. and Majd{\'a}n, A. and Heszberger, Z.},
+  title   = {Compressing {IP} forwarding tables: Towards entropy bounds and beyond},
+  journal = {IEEE/ACM Transactions on Networking},
+  volume  = {24},
+  number  = {1},
+  pages   = {149--162},
+  year    = {2016}
+}
+
+@article{zec2012dxr,
+  author  = {Zec, M. and Rizzo, L. and Mikuc, M.},
+  title   = {{DXR}: Towards a billion routing lookups per second in software},
+  journal = {ACM SIGCOMM Computer Communication Review},
+  volume  = {42},
+  number  = {5},
+  pages   = {29--36},
+  year    = {2012}
+}
+
+@inproceedings{yang2014sail,
+  author    = {Yang, T. and Xie, G. and Li, Y. and Fu, Q. and Liu, A. X. and Li, Q. and Mathy, L.},
+  title     = {Guarantee {IP} lookup performance with {FIB} explosion},
+  booktitle = {Proc. ACM SIGCOMM},
+  pages     = {39--50},
+  year      = {2014}
+}
+
+@article{eatherton2004treebitmap,
+  author  = {Eatherton, W. and Varghese, G. and Dittia, Z.},
+  title   = {Tree bitmap: Hardware/software {IP} lookups with incremental updates},
+  journal = {ACM SIGCOMM Computer Communication Review},
+  volume  = {34},
+  number  = {2},
+  pages   = {97--122},
+  year    = {2004}
+}
+
+@inproceedings{kim2009routecaching,
+  author    = {Kim, C. and Caesar, M. and Gerber, A. and Rexford, J.},
+  title     = {Revisiting route caching: The world should be flat},
+  booktitle = {Proc. Passive and Active Network Measurement (PAM), LNCS vol. 5448},
+  pages     = {3--12},
+  year      = {2009}
+}

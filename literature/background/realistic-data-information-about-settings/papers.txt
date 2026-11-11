@@ -1,0 +1,40 @@
+Andromeda: Performance, Isolation, and Velocity at Scale in Cloud Network Virtualization (NSDI 2018): https://www.usenix.org/system/files/conference/nsdi18/nsdi18-dalton.pdf
+Sailfish: Accelerating Cloud-Scale Multi-Tenant Multi-Service Gateways with Programmable Switches (SIGCOMM 2021): https://conferences.sigcomm.org/sigcomm/2021/files/papers/3452296.3472889.pdf (alternative copy: https://thlujy.github.io/papers/Lujianyuan-sigcomm-sailfish.pdf)
+Achelous: Enabling Programmability, Elasticity, and Reliability in Hyperscale Cloud Networks (SIGCOMM 2023): https://yangye-huaizhou.github.io/files/Achelous.pdf / https://dl.acm.org/doi/10.1145/3603269.3604859
+QuarkTable (APNet 2024): https://conferences.sigcomm.org/events/apnet2024/papers/QuarkTableBuildingCompactForwardingTablesforProgrammableSwitchesonPublicClouds.pdf
+MaP: Increasing node capacity of programmable cloud gateways (Computer Networks 2024): https://doi.org/10.1016/j.comnet.2024.110590
+A Scalable VPN Gateway for Multi-Tenant Cloud Services (SIGCOMM CCR 2018): https://dl.acm.org/doi/10.1145/3211852.3211860
+Scalable VPN Routing via Relaying (SIGMETRICS 2008): https://dl.acm.org/doi/10.1145/1375457.1375465
+RFC 4364, BGP/MPLS IP Virtual Private Networks: https://www.rfc-editor.org/rfc/rfc4364
+RFC 1812, Requirements for IP Version 4 Routers (longest match; section not yet verified): https://www.rfc-editor.org/rfc/rfc1812
+Juniper vMX Day One book: https://www.juniper.net/documentation/us/en/internal/day-one-books-archive/DayOne_vMX.pdf
+Versa VOS datasheet: https://cdn.blueally.com/securesdwanworks/datasheets/versa-vos.pdf
+Versa multi-tenancy page: https://versa-networks.com/products/multi-tenancy/
+Bluebird: High-performance SDN for Bare-metal Cloud Services (NSDI 2022): https://www.usenix.org/system/files/nsdi22-paper-arumugam.pdf
+NVIDIA Cumulus Linux VRF docs: https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-516/Layer-3/VRFs/Virtual-Routing-and-Forwarding-VRF/
+NVIDIA EVPN Deployment Scenarios: https://docs.nvidia.com/networking-ethernet-software/guides/EVPN-Network-Reference/EVPN-Deployment-Scenarios/
+Cisco VXLAN BGP EVPN Design and Implementation Guide: https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/cisco-vxlan-bgp-evpn-design-and-implementation-guide.html
+VPP FIB Scale: https://s3-docs.fd.io/vpp/24.02/developer/corefeatures/fib/scale.html
+FRR EVPN docs: https://docs.frrouting.org/en/latest/evpn.html
+EVPN to the Host (RIPE 77): https://ripe77.ripe.net/presentations/21-EVPN-to-the-host.pdf
+Contrail vRouter: https://www.juniper.net/documentation/en_US/day-one-books/topics/concept/contrail-vrouter.html
+Will enhanced servers do away with need for switches? (Network World 2015): https://www.networkworld.com/article/934160/will-enhanced-servers-do-away-with-need-for-switches.html
+A deep dive into BPF LPM trie performance and optimization (Cloudflare, 2025): https://blog.cloudflare.com/a-deep-dive-into-bpf-lpm-trie-performance-and-optimization/
+RouteBricks: Exploiting Parallelism to Scale Software Routers (SOSP 2009): https://courses.grainger.illinois.edu/cs598hpn/fa2019/papers/routebricks.pdf
+Trellis (ROADS/CoNEXT 2008): https://www.cs.princeton.edu/~jrex/papers/roads2008.pdf
+Efficient IP-Address Lookup with a Shared Forwarding Table for Multiple Virtual Routers (Fu & Rexford, CoNEXT 2008): https://dl.acm.org/doi/10.1145/1544012.1544033
+A Trie Merging Approach with Incremental Updates for Virtual Routers (Luo et al., INFOCOM 2013): https://doi.org/10.1109/INFCOM.2013.6566914
+Memory-efficient IP lookup using trie merging for scalable virtual routers (JNCA 2015): https://doi.org/10.1016/j.jnca.2014.02.007
+Multiroot: Towards Memory-Efficient Router Virtualization (ICC 2011)
+Dynamic Virtual Routers Using Multiway Segment Tree (HPSR 2013)
+Memory-Efficient and Scalable Virtual Routers Using FPGA (Le, Ganegedara, Prasanna)
+FRuG: A Benchmark for Packet Forwarding in Future Networks (Ganegedara, Jiang, Prasanna)
+Constant IP Lookup With FIB Explosion (IEEE/ACM ToN 2018)
+A splitting-after-merging approach to multi-FIB compression and fast refactoring in virtual routers (FITEE 2016)
+A Comprehensive Performance Analysis of Virtual Routers on FPGA (ACM TRETS 2014)
+VFP (NSDI 2017): https://www.usenix.org/system/files/conference/nsdi17/nsdi17-firestone.pdf
+LuoShen (NSDI 2024): https://www.usenix.org/system/files/nsdi24-pan.pdf
+Nezha (SIGCOMM 2025): https://ng-95.github.io/files/Nezha_SIGCOMM25.pdf
+Protean (OSDI 2020): https://www.usenix.org/system/files/osdi20-hadary.pdf
+Resource Central (SOSP 2017): https://www.microsoft.com/en-us/research/wp-content/uploads/2017/10/Resource-Central-SOSP17.pdf
+https://learn.microsoft.com/en-gb/azure/virtual-network/virtual-networks-udr-overview
