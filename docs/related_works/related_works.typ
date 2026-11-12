@@ -544,9 +544,10 @@ Section 2.3.
     [Shape graph], [✓], [?], [✓],
     [Prefix DAG], [✓], [?], [✓],
   ),
-  caption: [Expected fit of each design for the settings of Section 2.3: ✓ good
-    fit, \~ workable, ✗ poor fit, ? depends on properties of the tables that
-    have not been measured.],
+  caption: [Expected fit of each design for the settings of Section 2.3: ✓
+    promising fit, \~ workable, ✗ poor fit, ? depends on properties of the
+    tables that have not been measured. Promising candidates will be tested and
+    evaluated to confirm those claims.],
 ) <tab:rw-settings>
 
 
