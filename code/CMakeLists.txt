@@ -14,6 +14,7 @@ target_compile_options(project_compilation_options INTERFACE -Wall -Wextra -Wped
 
 add_subdirectory(utils)
 add_subdirectory(core)
+add_subdirectory(forwarding_tables)
 
 add_executable(forwarding main.cpp)
 target_link_libraries(forwarding PRIVATE project_compilation_options core)

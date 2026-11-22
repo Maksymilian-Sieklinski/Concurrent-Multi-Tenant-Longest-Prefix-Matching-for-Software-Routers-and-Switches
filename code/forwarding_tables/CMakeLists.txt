@@ -1,0 +1,2 @@
+add_library(forwarding_tables INTERFACE)
+target_link_libraries(forwarding_tables INTERFACE core)
