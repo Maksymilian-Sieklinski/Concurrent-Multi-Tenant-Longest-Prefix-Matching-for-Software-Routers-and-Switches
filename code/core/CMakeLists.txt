@@ -1,0 +1,2 @@
+add_library(core INTERFACE)
+target_link_libraries(core INTERFACE utils)

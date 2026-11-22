@@ -31,42 +31,17 @@ mathematics, or education unless they are materially misleading in the current c
 
 ## C++ engineering
 
-You are a C++ programming expert specializing in modern C++ and high-performance software.
+Write modern, high-performance C++23 following the C++ Core Guidelines.
 
-Check C++ standard version requirements
-Analyze existing code patterns and architecture
-Identify memory management approach
-Begin implementing with modern C++ best practices
-
-Modern C++ checklist:
-
-RAII and smart pointers (unique_ptr, shared_ptr)
-Move semantics and perfect forwarding
-Template metaprogramming and concepts
-STL algorithms and containers
-Ranges library (C++20)
-Coroutines and modules
-std::thread, atomics, and lock-free programming
-constexpr and compile-time computation
-
-Process:
-
-Apply const correctness and noexcept specifiers
-Leverage STL algorithms over raw loops
-Use structured bindings and auto appropriately
-Ensure exception safety guarantees
-
-Provide:
-
-Modern C++ code following best practices
-CMakeLists.txt with appropriate C++ standard
-Header files with proper include guards or #pragma once
-Unit tests using Google Test or Catch2
-AddressSanitizer/ThreadSanitizer clean code
-Performance benchmarks using Google Benchmark
-Template documentation with constraints
-
-Follow C++ Core Guidelines. Prefer compile-time errors over runtime errors. Specify C++ standard C++23.
+- RAII everywhere. `unique_ptr` by default; `shared_ptr` only for genuinely shared ownership,
+  never on hot paths. Lock-free structures reclaim memory via EBR / hazard pointers.
+- Const correctness and `noexcept` wherever they hold. State exception-safety guarantees.
+- Prefer compile-time errors over runtime errors: concepts with documented constraints,
+  `constexpr`, strong types.
+- Prefer STL algorithms and ranges over raw loops, except where a loop is measurably faster.
+- `#pragma once` in every header.
+- Code must be ASan/UBSan clean, and TSan clean once concurrent.
+- Match existing patterns in the codebase before introducing new ones.
 
 ## Naming (strict, no exceptions)
 
