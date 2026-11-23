@@ -64,12 +64,24 @@ Types are `PascalCase`; functions and the part after a prefix are `camelCase`.
 
 ## Architecture
 
-Dependencies point one way: harnesses → generator → core ← structures.
+Dependencies point one way:
 
-- **Core** — shared vocabulary: address, prefix, tenant id, next hop, operations, and the
-  concept every forwarding structure satisfies (insert / remove / lookup per tenant).
-- **Reference structure** — a plain binary radix trie, no optimisations, written to be
-  obviously correct. Once it passes the integration tests it is the oracle for everything else.
+```
+harnesses → generator → core
+harnesses → concept   → core
+structures → concept
+```
+
+- **Utils** — helpers that know nothing about this project.
+- **Core** — shared vocabulary used by every other component.
+- **Concept** — the contract every forwarding structure satisfies. Harnesses depend on it, never
+  on a concrete structure; structures are named only where a harness is instantiated.
+- **Reference structure** — `LinearLengthSearch` (single-tenant, wrapped in `PerTenantTable`):
+  one hash map keyed by normalised `Prefix`; a lookup probes every length from /32 down to /0.
+  No optimisations, written to be obviously correct. Once it passes the integration tests it is
+  the oracle for everything else. Structures that share `PerTenantTable` with it can't expose
+  bugs in that adapter through differential tests, so the integration tests must cover tenant
+  handling.
 - **Workload generator** — produces operation streams: the read/write mix and data parameters
   (tenant count, prefixes shared across tenants, next-hop set, prefix-length distribution, …).
   Deterministic given a seed, so every failure and measurement is reproducible.
@@ -82,4 +94,5 @@ Dependencies point one way: harnesses → generator → core ← structures.
 - **Performance harness** — measures only, never verifies: mean, p95, p99 of lookup and update
   latency. Metrics are pluggable so memory use, cache misses, and multi-threaded runs can be
   added later without touching the existing ones.
-- **Structures** — the implementations under comparison. Each depends only on core.
+- **Structures** — the implementations under comparison. Each depends only on the concept and
+  core.

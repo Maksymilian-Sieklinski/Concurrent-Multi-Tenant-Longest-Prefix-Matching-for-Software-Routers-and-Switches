@@ -3,6 +3,8 @@
 #include <concepts>
 #include <optional>
 
+namespace mtlpm::multi_tenant
+{
 template <typename T>
 concept MultiTenantForwardingTable =
     std::default_initializable<T> &&
@@ -20,3 +22,4 @@ concept MultiTenantForwardingTable =
             aConstTable.findNextHop(aTenantId, anAddress)
         } noexcept -> std::same_as<std::optional<NextHop>>;
     };
+} // namespace mtlpm::multi_tenant
