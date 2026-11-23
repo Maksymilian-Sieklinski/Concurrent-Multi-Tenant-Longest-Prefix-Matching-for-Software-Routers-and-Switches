@@ -16,21 +16,24 @@ class PerTenantTable
     auto update(TenantId aTenantId, Prefix aPrefix, NextHop aNextHop) -> void
     {
         if (!doesTenantExist(aTenantId))
-            return;
+            throw std::runtime_error(
+                std::format("Tenant with id {} doesn't exists", aTenantId.value()));
         theTenantTables.at(aTenantId).update(aPrefix, aNextHop);
     }
 
     auto remove(TenantId aTenantId, Prefix aPrefix) -> void
     {
         if (!doesTenantExist(aTenantId))
-            return;
+            throw std::runtime_error(
+                std::format("Tenant with id {} doesn't exists", aTenantId.value()));
         theTenantTables.at(aTenantId).remove(aPrefix);
     }
 
     auto removeTenant(TenantId aTenantId) -> void
     {
         if (!doesTenantExist(aTenantId))
-            return;
+            throw std::runtime_error(
+                std::format("Tenant with id {} doesn't exists", aTenantId.value()));
         theTenantTables.erase(aTenantId);
     }
 
