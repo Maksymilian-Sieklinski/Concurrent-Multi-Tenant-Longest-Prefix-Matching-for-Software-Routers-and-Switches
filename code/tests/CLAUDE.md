@@ -24,10 +24,14 @@ Rules for writing tests. They grow as the suite does.
   competing prefixes, are local to the test.
 - The fixture holds state only (`theTable`), no constants. Bind `auto &myTable = this->theTable;`
   at the top of each test.
-- Every test calls `addTenant` itself. Routes go in through `addTenant` with the `routes(...)`
-  helper, unless the test is about `update`.
+- The fixture starts with no tenants; a test adds every tenant it uses itself. Routes go in
+  through `addTenant` with the `routes(...)` helper, unless the test is about `update`.
 - Every route in a test has a distinct next hop.
-- `EXPECT_EQ(expected, actual)`, with the lookup inline.
+- `EXPECT_EQ(expected, actual)`, with the lookup inline. The looked-up address may be written
+  inline in the call (`address(10, 1, 2, 3)`) instead of in the data section.
+- An octet whose bits decide the outcome is written in binary, with a digit separator where a
+  prefix length splits it: `prefix(10, 0b0001'0000, 0, 0, 12)`, `address(10, 0b0001'1111, 0, 0)`.
+  Every other octet is decimal.
 
 ## Writing new tests (Claude)
 

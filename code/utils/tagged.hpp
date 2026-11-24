@@ -2,6 +2,7 @@
 #include <compare> // IWYU pragma: keep
 #include <concepts>
 #include <functional>
+#include <ostream>
 
 namespace utils
 {
@@ -17,6 +18,12 @@ class Tagged
     constexpr explicit Tagged(T aValue) noexcept : theValue(aValue) {}
     [[nodiscard]] constexpr auto value() const noexcept -> T { return theValue; }
     constexpr auto operator<=>(const Tagged &) const noexcept = default;
+
+    friend auto operator<<(std::ostream &anOutput, const Tagged &aTagged) -> std::ostream &
+    {
+        // + is integral promotion for uint8_t and uint16_t, so we don't print char
+        return anOutput << +aTagged.value();
+    }
 
   private:
     T theValue;
