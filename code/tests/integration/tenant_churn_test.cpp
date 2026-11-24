@@ -17,7 +17,7 @@ TYPED_TEST_SUITE(TenantChurn, MultiTenantImplementations, ImplementationNames);
 
 TYPED_TEST(TenantChurn, LookupOnUnknownTenantMisses)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myUnknownTenant = TenantId{1};
     const auto myAddress = address(10, 1, 2, 3);
@@ -27,7 +27,7 @@ TYPED_TEST(TenantChurn, LookupOnUnknownTenantMisses)
 
 TYPED_TEST(TenantChurn, LookupOnRemovedTenantMisses)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myTenant = TenantId{1};
     const auto myPrefix = prefix(10, 1, 0, 0, 16);
@@ -42,7 +42,7 @@ TYPED_TEST(TenantChurn, LookupOnRemovedTenantMisses)
 
 TYPED_TEST(TenantChurn, RemovingTenantLeavesOthersIntact)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myRemovedTenant = TenantId{1};
     const auto myKeptTenant = TenantId{2};
@@ -60,7 +60,7 @@ TYPED_TEST(TenantChurn, RemovingTenantLeavesOthersIntact)
 
 TYPED_TEST(TenantChurn, TenantAddedAgainAfterRemovalDropsOldRoutes)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myTenant = TenantId{1};
     const auto myPrefix = prefix(10, 1, 0, 0, 16);
@@ -76,7 +76,7 @@ TYPED_TEST(TenantChurn, TenantAddedAgainAfterRemovalDropsOldRoutes)
 
 TYPED_TEST(TenantChurn, TenantAddedAgainAfterRemovalDropsOldUpdates)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myTenant = TenantId{1};
     const auto myPrefix = prefix(10, 1, 0, 0, 16);
@@ -93,7 +93,7 @@ TYPED_TEST(TenantChurn, TenantAddedAgainAfterRemovalDropsOldUpdates)
 
 TYPED_TEST(TenantChurn, InterleavedChurnPreservesLiveTenants)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myFirstTenant = TenantId{1};
     const auto mySecondTenant = TenantId{2};

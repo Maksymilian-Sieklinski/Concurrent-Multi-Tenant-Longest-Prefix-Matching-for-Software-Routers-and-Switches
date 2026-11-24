@@ -22,7 +22,7 @@ TYPED_TEST_SUITE(PrefixUpdates, MultiTenantImplementations, ImplementationNames)
 
 TYPED_TEST(PrefixUpdates, UpdatedPrefixMatches)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myPrefix = prefix(10, 1, 0, 0, 16);
     const auto myNextHop = NextHop{1};
@@ -36,7 +36,7 @@ TYPED_TEST(PrefixUpdates, UpdatedPrefixMatches)
 
 TYPED_TEST(PrefixUpdates, UpdateOverwritesNextHop)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myPrefix = prefix(10, 1, 0, 0, 16);
     const auto myOldNextHop = NextHop{1};
@@ -51,7 +51,7 @@ TYPED_TEST(PrefixUpdates, UpdateOverwritesNextHop)
 
 TYPED_TEST(PrefixUpdates, LongerPrefixStillMatchesInsideShorterPrefixAddedByUpdate)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myShortPrefix = prefix(10, 0, 0, 0, 8);
     const auto myLongPrefix = prefix(10, 1, 0, 0, 16);
@@ -67,7 +67,7 @@ TYPED_TEST(PrefixUpdates, LongerPrefixStillMatchesInsideShorterPrefixAddedByUpda
 
 TYPED_TEST(PrefixUpdates, ShorterPrefixStillMatchesOutsideLongerPrefixAddedByUpdate)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myShortPrefix = prefix(10, 0, 0, 0, 8);
     const auto myLongPrefix = prefix(10, 1, 0, 0, 16);
@@ -83,7 +83,7 @@ TYPED_TEST(PrefixUpdates, ShorterPrefixStillMatchesOutsideLongerPrefixAddedByUpd
 
 TYPED_TEST(PrefixUpdates, RemovedPrefixMisses)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myPrefix = prefix(10, 1, 0, 0, 16);
     const auto myNextHop = NextHop{1};
@@ -97,7 +97,7 @@ TYPED_TEST(PrefixUpdates, RemovedPrefixMisses)
 
 TYPED_TEST(PrefixUpdates, RemovedDefaultRouteMisses)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myDefaultPrefix = prefix(0, 0, 0, 0, 0);
     const auto myNextHop = NextHop{1};
@@ -111,7 +111,7 @@ TYPED_TEST(PrefixUpdates, RemovedDefaultRouteMisses)
 
 TYPED_TEST(PrefixUpdates, RemovedPrefixFallsBackToShorter)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myShortPrefix = prefix(10, 0, 0, 0, 8);
     const auto myLongPrefix = prefix(10, 1, 0, 0, 16);
@@ -128,7 +128,7 @@ TYPED_TEST(PrefixUpdates, RemovedPrefixFallsBackToShorter)
 
 TYPED_TEST(PrefixUpdates, RemovedShorterPrefixLeavesLongerIntact)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myShortPrefix = prefix(10, 0, 0, 0, 8);
     const auto myLongPrefix = prefix(10, 1, 0, 0, 16);
@@ -145,7 +145,7 @@ TYPED_TEST(PrefixUpdates, RemovedShorterPrefixLeavesLongerIntact)
 
 TYPED_TEST(PrefixUpdates, RemovingAbsentPrefixChangesNothing)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myShortPrefix = prefix(10, 0, 0, 0, 8);
     const auto myLongPrefix = prefix(10, 1, 0, 0, 16);
@@ -164,7 +164,7 @@ TYPED_TEST(PrefixUpdates, RemovingAbsentPrefixChangesNothing)
 
 TYPED_TEST(PrefixUpdates, ReinsertedPrefixMatchesNewNextHop)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myPrefix = prefix(10, 1, 0, 0, 16);
     const auto myOldNextHop = NextHop{1};

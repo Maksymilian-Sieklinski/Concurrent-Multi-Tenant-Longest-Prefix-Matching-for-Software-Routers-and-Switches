@@ -22,16 +22,23 @@ Rules for writing tests. They grow as the suite does.
 - The anonymous namespace holds only values the outcome doesn't depend on, such as `TENANT` in a
   test that isn't about tenants. Values that decide the outcome, including the next hops of
   competing prefixes, are local to the test.
-- The fixture holds state only (`theTable`), no constants. Bind `auto &myTable = this->theTable;`
-  at the top of each test.
-- The fixture starts with no tenants; a test adds every tenant it uses itself. Routes go in
-  through `addTenant` with the `routes(...)` helper, unless the test is about `update`.
 - Every route in a test has a distinct next hop.
 - `EXPECT_EQ(expected, actual)`, with the lookup inline. The looked-up address may be written
   inline in the call (`address(10, 1, 2, 3)`) instead of in the data section.
 - An octet whose bits decide the outcome is written in binary, with a digit separator where a
   prefix length splits it: `prefix(10, 0b0001'0000, 0, 0, 12)`, `address(10, 0b0001'1111, 0, 0)`.
   Every other octet is decimal.
+
+## Integration tests
+
+- Suites derive from the `ForwardingTableTest` fixture (`integration/forwarding_table_fixture.hpp`).
+  It holds state only (`theTenSlotTable`, valid tenant ids 0..9), no constants. Bind
+  `auto &myTable = this->theTenSlotTable;` at the top of each test.
+- Tests about tenant capacity don't use the fixture table, because the capacity decides their
+  outcome and so is local to the test. They construct their own `TypeParam myTable{myCapacity};`
+  with the capacity in the data section.
+- The table starts with no tenants; a test adds every tenant it uses itself. Routes go in
+  through `addTenant` with the `routes(...)` helper, unless the test is about `update`.
 
 ## Writing new tests (Claude)
 

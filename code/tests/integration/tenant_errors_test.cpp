@@ -18,7 +18,7 @@ TYPED_TEST_SUITE(TenantErrors, MultiTenantImplementations, ImplementationNames);
 
 TYPED_TEST(TenantErrors, AddingExistingTenantThrows)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myTenant = TenantId{1};
     const auto myPrefix = prefix(10, 1, 0, 0, 16);
@@ -33,7 +33,7 @@ TYPED_TEST(TenantErrors, AddingExistingTenantThrows)
 
 TYPED_TEST(TenantErrors, FailedAddTenantKeepsOriginalRoutes)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myTenant = TenantId{1};
     const auto myPrefix = prefix(10, 1, 0, 0, 16);
@@ -54,7 +54,7 @@ TYPED_TEST(TenantErrors, FailedAddTenantKeepsOriginalRoutes)
 
 TYPED_TEST(TenantErrors, UpdateOnMissingTenantThrows)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myExistingTenant = TenantId{1};
     const auto myMissingTenant = TenantId{2};
@@ -68,7 +68,7 @@ TYPED_TEST(TenantErrors, UpdateOnMissingTenantThrows)
 
 TYPED_TEST(TenantErrors, RemoveOnMissingTenantThrows)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myExistingTenant = TenantId{1};
     const auto myMissingTenant = TenantId{2};
@@ -82,7 +82,7 @@ TYPED_TEST(TenantErrors, RemoveOnMissingTenantThrows)
 
 TYPED_TEST(TenantErrors, RemovingMissingTenantThrows)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myExistingTenant = TenantId{1};
     const auto myMissingTenant = TenantId{2};
@@ -94,7 +94,7 @@ TYPED_TEST(TenantErrors, RemovingMissingTenantThrows)
 
 TYPED_TEST(TenantErrors, FailedRemoveTenantLeavesOthersIntact)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myExistingTenant = TenantId{1};
     const auto myMissingTenant = TenantId{2};
@@ -110,7 +110,7 @@ TYPED_TEST(TenantErrors, FailedRemoveTenantLeavesOthersIntact)
 
 TYPED_TEST(TenantErrors, RemovingRemovedTenantThrows)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myTenant = TenantId{1};
 
@@ -122,7 +122,7 @@ TYPED_TEST(TenantErrors, RemovingRemovedTenantThrows)
 
 TYPED_TEST(TenantErrors, UpdateOnRemovedTenantThrows)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myTenant = TenantId{1};
     const auto myPrefix = prefix(10, 1, 0, 0, 16);

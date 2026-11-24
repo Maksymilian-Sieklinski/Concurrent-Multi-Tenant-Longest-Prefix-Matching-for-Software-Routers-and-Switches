@@ -28,7 +28,7 @@ TYPED_TEST_SUITE(LongestPrefixMatch, MultiTenantImplementations, ImplementationN
 
 TYPED_TEST(LongestPrefixMatch, LongerPrefixWins)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myShortPrefix = prefix(10, 0, 0, 0, 8);
     const auto myLongPrefix = prefix(10, 1, 0, 0, 16);
@@ -44,7 +44,7 @@ TYPED_TEST(LongestPrefixMatch, LongerPrefixWins)
 
 TYPED_TEST(LongestPrefixMatch, AddressOnEmptyTenantMisses)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myAddress = address(10, 1, 2, 3);
 
@@ -55,7 +55,7 @@ TYPED_TEST(LongestPrefixMatch, AddressOnEmptyTenantMisses)
 
 TYPED_TEST(LongestPrefixMatch, AddressOutsideEveryPrefixMisses)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myFirstPrefix = prefix(10, 0, 0, 0, 8);
     const auto mySecondPrefix = prefix(192, 168, 0, 0, 16);
@@ -71,7 +71,7 @@ TYPED_TEST(LongestPrefixMatch, AddressOutsideEveryPrefixMisses)
 
 TYPED_TEST(LongestPrefixMatch, DefaultRouteCoversEveryAddress)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myDefaultPrefix = prefix(0, 0, 0, 0, 0);
     const auto myNextHop = NextHop{1};
@@ -87,7 +87,7 @@ TYPED_TEST(LongestPrefixMatch, DefaultRouteCoversEveryAddress)
 
 TYPED_TEST(LongestPrefixMatch, HostRouteMatchesOnlyItsAddress)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myHostPrefix = prefix(10, 1, 2, 3, 32);
     const auto myNextHop = NextHop{1};
@@ -102,7 +102,7 @@ TYPED_TEST(LongestPrefixMatch, HostRouteMatchesOnlyItsAddress)
 
 TYPED_TEST(LongestPrefixMatch, PrefixCoversExactlyItsRange)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myPrefix = prefix(10, 1, 0b0001'0000, 0, 20);
     const auto myNextHop = NextHop{1};
@@ -117,7 +117,7 @@ TYPED_TEST(LongestPrefixMatch, PrefixCoversExactlyItsRange)
 
 TYPED_TEST(LongestPrefixMatch, PrefixesDifferingOnlyInLastBitMatchSeparateAddresses)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myEvenPrefix = prefix(10, 1, 0b00000010, 0, 24);
     const auto myOddPrefix = prefix(10, 1, 0b00000011, 0, 24);
@@ -133,7 +133,7 @@ TYPED_TEST(LongestPrefixMatch, PrefixesDifferingOnlyInLastBitMatchSeparateAddres
 
 TYPED_TEST(LongestPrefixMatch, SameBitsDifferentLengthPrefixesAreDistinct)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myShortPrefix = prefix(10, 0, 0, 0, 8);
     const auto myLongPrefix = prefix(10, 0, 0, 0, 16);
@@ -149,7 +149,7 @@ TYPED_TEST(LongestPrefixMatch, SameBitsDifferentLengthPrefixesAreDistinct)
 
 TYPED_TEST(LongestPrefixMatch, EveryPrefixLengthFromZeroToThirtyTwoMatches)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myLengths = std::views::iota(std::uint8_t{0}, std::uint8_t{ADDRESS_BITS + 1});
     const auto myRoutes =
@@ -167,7 +167,7 @@ TYPED_TEST(LongestPrefixMatch, EveryPrefixLengthFromZeroToThirtyTwoMatches)
 
 TYPED_TEST(LongestPrefixMatch, MinAndMaxNextHopsAreReturned)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myMinPrefix = prefix(10, 0, 0, 0, 8);
     const auto myMaxPrefix = prefix(20, 0, 0, 0, 8);

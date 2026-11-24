@@ -3,9 +3,7 @@
 #include "tests/integration/forwarding_table_fixture.hpp"
 #include "tests/ipv4_notation.hpp"
 #include "tests/routes.hpp"
-#include <cstdint>
 #include <gtest/gtest.h>
-#include <limits>
 #include <optional>
 
 namespace mtlpm::tests
@@ -19,7 +17,7 @@ TYPED_TEST_SUITE(TenantIsolation, MultiTenantImplementations, ImplementationName
 
 TYPED_TEST(TenantIsolation, SamePrefixDifferentNextHopResolvesPerTenant)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myTenant = TenantId{1};
     const auto myOtherTenant = TenantId{2};
@@ -35,27 +33,9 @@ TYPED_TEST(TenantIsolation, SamePrefixDifferentNextHopResolvesPerTenant)
     EXPECT_EQ(myOtherNextHop, myTable.findNextHop(myOtherTenant, myAddress));
 }
 
-TYPED_TEST(TenantIsolation, MinAndMaxTenantIdsResolvePerTenant)
-{
-    auto &myTable = this->theTable;
-
-    const auto myMinTenant = TenantId{std::numeric_limits<std::uint32_t>::min()};
-    const auto myMaxTenant = TenantId{std::numeric_limits<std::uint32_t>::max()};
-    const auto myPrefix = prefix(10, 1, 0, 0, 16);
-    const auto myMinTenantNextHop = NextHop{1};
-    const auto myMaxTenantNextHop = NextHop{2};
-    const auto myAddress = address(10, 1, 2, 3);
-
-    myTable.addTenant(myMinTenant, routes(Route{myPrefix, myMinTenantNextHop}));
-    myTable.addTenant(myMaxTenant, routes(Route{myPrefix, myMaxTenantNextHop}));
-
-    EXPECT_EQ(myMinTenantNextHop, myTable.findNextHop(myMinTenant, myAddress));
-    EXPECT_EQ(myMaxTenantNextHop, myTable.findNextHop(myMaxTenant, myAddress));
-}
-
 TYPED_TEST(TenantIsolation, PrefixDoesNotLeakIntoEmptyTenant)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myTenant = TenantId{1};
     const auto myEmptyTenant = TenantId{2};
@@ -71,7 +51,7 @@ TYPED_TEST(TenantIsolation, PrefixDoesNotLeakIntoEmptyTenant)
 
 TYPED_TEST(TenantIsolation, DisjointPrefixDoesNotLeakAcrossTenants)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myTenant = TenantId{1};
     const auto myOtherTenant = TenantId{2};
@@ -89,7 +69,7 @@ TYPED_TEST(TenantIsolation, DisjointPrefixDoesNotLeakAcrossTenants)
 
 TYPED_TEST(TenantIsolation, LongerPrefixDoesNotLeakAcrossTenants)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myShortTenant = TenantId{1};
     const auto myLongTenant = TenantId{2};
@@ -107,7 +87,7 @@ TYPED_TEST(TenantIsolation, LongerPrefixDoesNotLeakAcrossTenants)
 
 TYPED_TEST(TenantIsolation, UpdateAffectsOnlyItsTenant)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myTenant = TenantId{1};
     const auto myOtherTenant = TenantId{2};
@@ -127,7 +107,7 @@ TYPED_TEST(TenantIsolation, UpdateAffectsOnlyItsTenant)
 
 TYPED_TEST(TenantIsolation, RemoveAffectsOnlyItsTenant)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myTenant = TenantId{1};
     const auto myOtherTenant = TenantId{2};
@@ -146,7 +126,7 @@ TYPED_TEST(TenantIsolation, RemoveAffectsOnlyItsTenant)
 
 TYPED_TEST(TenantIsolation, UpdatedPrefixDoesNotLeakAcrossTenants)
 {
-    auto &myTable = this->theTable;
+    auto &myTable = this->theTenSlotTable;
 
     const auto myTenant = TenantId{1};
     const auto myOtherTenant = TenantId{2};
