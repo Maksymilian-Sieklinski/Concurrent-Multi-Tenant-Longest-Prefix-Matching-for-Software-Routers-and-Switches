@@ -2,6 +2,7 @@
 #include "core/prefix.hpp"
 #include "utils/tagged.hpp"
 #include <cstdint>
+#include <vector>
 
 namespace mtlpm
 {

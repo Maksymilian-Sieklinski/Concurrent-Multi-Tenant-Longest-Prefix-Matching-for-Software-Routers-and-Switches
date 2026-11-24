@@ -1,2 +1,7 @@
 CompileFlags:
   CompilationDatabase: build/debug
+---
+If:
+  PathMatch: tests/.*
+InlayHints:
+  ParameterNames: No

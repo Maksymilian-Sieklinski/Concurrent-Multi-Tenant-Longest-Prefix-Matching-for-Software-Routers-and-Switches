@@ -10,7 +10,7 @@ namespace mtlpm
 class Prefix
 {
   public:
-    Prefix(std::uint32_t aPrefixBits, std::uint8_t aPrefixLength)
+    explicit constexpr Prefix(std::uint32_t aPrefixBits, std::uint8_t aPrefixLength)
         : thePrefixLength(validate(aPrefixLength)),
           thePrefixBits(normalize(aPrefixBits, aPrefixLength))
     {
@@ -24,7 +24,7 @@ class Prefix
     auto operator==(const Prefix &) const -> bool = default;
 
   private:
-    static auto validate(std::uint8_t aPrefixLength) -> std::uint8_t
+    static constexpr auto validate(std::uint8_t aPrefixLength) -> std::uint8_t
     {
         if (aPrefixLength > ADDRESS_BITS)
             throw std::invalid_argument(std::format("Prefix length {} is longer than {} bits",

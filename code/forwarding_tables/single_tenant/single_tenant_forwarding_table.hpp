@@ -5,13 +5,21 @@
 
 namespace mtlpm::single_tenant
 {
+/**
+ * A route maps a prefix to a next hop. Prefixes are equal when their lengths and normalised bits
+ * are equal. A prefix covers an address when their first `length` bits match; /0 covers every
+ * address.
+ *
+ * constructor(routes) Holds exactly the given routes; for a repeated prefix the last one wins.
+ * update(prefix, hop) Sets the next hop of exactly this prefix, inserting the route if absent.
+ * remove(prefix)      Removes the route of exactly this prefix; a no-op if absent.
+ * findNextHop(addr)   The next hop of the longest covering prefix; nullopt if none. Never throws.
+ */
 template <typename T>
 concept SingleTenantForwardingTable =
     std::constructible_from<T, const TenantRoutes &> &&
     requires(T aTable, const T aConstTable, Prefix aPrefix, Address anAddress, NextHop aNextHop) {
-        // overwrites and inserts if missing a new prefix with a next-hop
         aTable.update(aPrefix, aNextHop);
-        // removes a prefix, if doesn't exists a no-op
         aTable.remove(aPrefix);
 
         { aConstTable.findNextHop(anAddress) } noexcept -> std::same_as<std::optional<NextHop>>;

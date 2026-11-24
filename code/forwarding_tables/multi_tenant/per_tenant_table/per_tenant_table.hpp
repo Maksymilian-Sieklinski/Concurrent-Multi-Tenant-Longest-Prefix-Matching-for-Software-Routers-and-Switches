@@ -16,7 +16,7 @@ class PerTenantTable
     auto update(TenantId aTenantId, Prefix aPrefix, NextHop aNextHop) -> void
     {
         if (!doesTenantExist(aTenantId))
-            throw std::runtime_error(
+            throw std::invalid_argument(
                 std::format("Tenant with id {} doesn't exists", aTenantId.value()));
         theTenantTables.at(aTenantId).update(aPrefix, aNextHop);
     }
@@ -24,7 +24,7 @@ class PerTenantTable
     auto remove(TenantId aTenantId, Prefix aPrefix) -> void
     {
         if (!doesTenantExist(aTenantId))
-            throw std::runtime_error(
+            throw std::invalid_argument(
                 std::format("Tenant with id {} doesn't exists", aTenantId.value()));
         theTenantTables.at(aTenantId).remove(aPrefix);
     }
@@ -32,7 +32,7 @@ class PerTenantTable
     auto removeTenant(TenantId aTenantId) -> void
     {
         if (!doesTenantExist(aTenantId))
-            throw std::runtime_error(
+            throw std::invalid_argument(
                 std::format("Tenant with id {} doesn't exists", aTenantId.value()));
         theTenantTables.erase(aTenantId);
     }
@@ -40,7 +40,7 @@ class PerTenantTable
     auto addTenant(TenantId aTenantId, const TenantRoutes &aTenantRoutes) -> void
     {
         if (doesTenantExist(aTenantId))
-            throw std::runtime_error(
+            throw std::invalid_argument(
                 std::format("Tenant with id {} already exists", aTenantId.value()));
         theTenantTables.try_emplace(aTenantId, aTenantRoutes);
     }
