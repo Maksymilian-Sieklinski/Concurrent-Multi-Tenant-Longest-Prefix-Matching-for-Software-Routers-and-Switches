@@ -1,15 +1,10 @@
 #pragma once
+#include "utils/hashable.hpp"
 #include <compare> // IWYU pragma: keep
-#include <concepts>
-#include <functional>
 #include <ostream>
 
 namespace utils
 {
-template <typename T>
-concept Hashable = requires(const T &aValue) {
-    { std::hash<T>{}(aValue) } -> std::convertible_to<size_t>;
-};
 
 template <typename T, typename Tag>
 class Tagged
