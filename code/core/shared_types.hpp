@@ -19,6 +19,9 @@ static_assert(sizeof(Address) == sizeof(std::uint32_t));
 using TenantCapacity = utils::Tagged<std::uint32_t, struct TenantCapacityTag>;
 static_assert(sizeof(TenantCapacity) == sizeof(std::uint32_t));
 
+using Seed = utils::Tagged<std::uint64_t, struct SeedTag>;
+static_assert(sizeof(Seed) == sizeof(std::uint64_t));
+
 struct Route
 {
     Prefix thePrefix;

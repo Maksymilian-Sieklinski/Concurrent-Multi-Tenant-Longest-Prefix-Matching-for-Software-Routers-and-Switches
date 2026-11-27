@@ -48,6 +48,8 @@ class RandomAccessSet
 
     auto contains(T anElement) const -> bool { return theElementToIndex.contains(anElement); }
 
+    [[nodiscard]] auto empty() const noexcept -> bool { return theElements.empty(); }
+
     auto clear() -> void
     {
         theElements.clear();

@@ -1,3 +1,4 @@
 code/build/
 code/CMakeUserPresets.json
 .vscode/
+.claude/

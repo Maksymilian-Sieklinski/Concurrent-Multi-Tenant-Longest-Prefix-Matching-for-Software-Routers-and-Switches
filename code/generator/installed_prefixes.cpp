@@ -9,20 +9,11 @@
 namespace mtlpm::generator
 {
 
-InstalledPrefixes::InstalledPrefixes(TenantCapacity aTenantCapacity,
-                                     const std::vector<TenantRoutes> &aInitialTenants)
-
+InstalledPrefixes::InstalledPrefixes(TenantCapacity aTenantCapacity)
 {
-    if (aInitialTenants.size() > aTenantCapacity.value())
-        throw std::logic_error("Number of initial tenants exceeds the tenant capacity");
-
     theTenantsPrefixes.resize(aTenantCapacity.value());
-    for (const auto myTenantId : std::views::iota(
-             static_cast<std::uint32_t>(aInitialTenants.size()), aTenantCapacity.value()))
+    for (const auto myTenantId : std::views::iota(std::uint32_t{0}, aTenantCapacity.value()))
         theAbsentTenants.insert(TenantId{myTenantId});
-
-    for (const auto &[myTenantId, myTenantRoues] : std::ranges::views::enumerate(aInitialTenants))
-        addTenant(TenantId{static_cast<std::uint32_t>(myTenantId)}, myTenantRoues);
 }
 
 auto InstalledPrefixes::getRandomPresentTenant(Engine &anEngine) const -> TenantId
@@ -35,15 +26,27 @@ auto InstalledPrefixes::getRandomAbsentTenant(Engine &anEngine) const -> TenantI
     return theAbsentTenants.getRandom(anEngine);
 }
 
-auto InstalledPrefixes::contains(TenantId aTenantId) const -> bool
+auto InstalledPrefixes::containsTenant(TenantId aTenantId) const -> bool
 {
     return thePresentTenants.contains(aTenantId);
 }
 
-auto InstalledPrefixes::contains(TenantId aTenantId, Prefix aPrefix) const -> bool
+auto InstalledPrefixes::tenantContainsPrefix(TenantId aTenantId, Prefix aPrefix) const -> bool
 {
     throwOnAbsentOrOutOfCapacityTenant(aTenantId);
     return theTenantsPrefixes[aTenantId.value()].contains(aPrefix);
+}
+
+auto InstalledPrefixes::doesTenantHaveAnyPrefixes(TenantId aTenantId) const -> bool
+{
+    throwOnAbsentOrOutOfCapacityTenant(aTenantId);
+    return !theTenantsPrefixes[aTenantId.value()].empty();
+}
+
+auto InstalledPrefixes::getRandomTenantPrefix(TenantId aTenantId, Engine &anEngine) const -> Prefix
+{
+    throwOnAbsentOrOutOfCapacityTenant(aTenantId);
+    return theTenantsPrefixes[aTenantId.value()].getRandom(anEngine);
 }
 
 auto InstalledPrefixes::applyOperation(const Operation &anOperation) -> void

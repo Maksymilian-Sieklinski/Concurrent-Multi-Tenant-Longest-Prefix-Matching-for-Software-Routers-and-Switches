@@ -1,5 +1,6 @@
 #pragma once
 #include "core/shared_types.hpp"
+#include <cstdint>
 #include <type_traits>
 #include <variant>
 
@@ -29,4 +30,11 @@ struct Remove
 static_assert(std::is_aggregate<Remove>());
 
 using Operation = std::variant<Lookup, Update, Remove>;
+
+enum class OperationKind : std::uint8_t
+{
+    Lookup,
+    Update,
+    Remove,
+};
 } // namespace mtlpm::generator

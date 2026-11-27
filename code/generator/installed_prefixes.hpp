@@ -11,22 +11,25 @@ namespace mtlpm::generator
 class InstalledPrefixes
 {
   public:
-    InstalledPrefixes(TenantCapacity aTenantCapacity,
-                      const std::vector<TenantRoutes> &aInitialTenants);
+    explicit InstalledPrefixes(TenantCapacity aTenantCapacity);
+
+    auto addTenant(TenantId aTenantId, const TenantRoutes &aTenantRoutes) -> void;
 
     [[nodiscard]] auto getRandomPresentTenant(Engine &anEngine) const -> TenantId;
 
     [[nodiscard]] auto getRandomAbsentTenant(Engine &anEngine) const -> TenantId;
 
-    [[nodiscard]] auto contains(TenantId aTenantId) const -> bool;
+    [[nodiscard]] auto containsTenant(TenantId aTenantId) const -> bool;
 
-    [[nodiscard]] auto contains(TenantId aTenantId, Prefix aPrefix) const -> bool;
+    [[nodiscard]] auto tenantContainsPrefix(TenantId aTenantId, Prefix aPrefix) const -> bool;
+
+    [[nodiscard]] auto doesTenantHaveAnyPrefixes(TenantId aTenantId) const -> bool;
+
+    [[nodiscard]] auto getRandomTenantPrefix(TenantId aTenantId, Engine &anEngine) const -> Prefix;
 
     auto applyOperation(const Operation &anOperation) -> void;
 
   private:
-    auto addTenant(TenantId aTenantId, const TenantRoutes &aTenantRoutes) -> void;
-
     auto removeTenant(TenantId aTenantId) -> void;
 
     auto updatePrefix(TenantId aTenantId, Prefix aPrefix) -> void;

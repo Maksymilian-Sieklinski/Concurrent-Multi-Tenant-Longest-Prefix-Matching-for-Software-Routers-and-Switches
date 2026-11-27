@@ -15,6 +15,7 @@ target_compile_options(project_compilation_options INTERFACE -Wall -Wextra -Wped
 add_subdirectory(utils)
 add_subdirectory(core)
 add_subdirectory(forwarding_tables)
+add_subdirectory(generator)
 
 enable_testing()
 add_subdirectory(tests)
